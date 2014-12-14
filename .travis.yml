@@ -1,0 +1,14 @@
+# to trigger the build on JVM worker ('language: java' works the same)
+language: scala
+env:
+  - PLAY_VERSION=2.2.2
+before_script:
+#  - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
+  - wget http://downloads.typesafe.com/typesafe-activator/1.0.13/typesafe-activator-1.0.13.zip
+  - unzip -q typesafe-activator-1.0.13.zip
+script: typesafe-activator-1.0.13/activator test
+notifications:
+  # Email notifications are disabled to not annoy anybody.
+  # See http://about.travis-ci.org/docs/user/build-configuration/ to learn more
+  # about configuring notification recipients and more.
+  email: false
